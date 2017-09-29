@@ -1,1 +1,59 @@
+//未完成 插入数据不正确
+
+#include <iostream>
+using namespace std;
+
+#define MAXSIZE 100
+//线性表的顺序储存实现 以int型为例
+struct List
+{
+	int Data[MAXSIZE];
+	int last;           //用于存放最后一个数据对应的数辆
+};
+List *PtrL;
+
+List *MakeEmpty()
+{
+	PtrL = new List;
+	PtrL->last = 0;
+	return PtrL;
+}
+
+
+void Insert(int X, int i, List p)
+{
+	int j;
+	if (p.last == MAXSIZE - 1)
+	{
+		cout << "表满" << endl; return;
+	}
+	if (i<1 || 1>p.last + 2)
+	{
+		cout << "位置不合法" << endl; return;
+	}
+	if (p.last == 0)
+	{
+		p.Data[0] = X;
+		p.last++;
+	}
+	else
+	{
+		for (j = p.last; j >= i - 1; j--)
+			p.Data[j + 1] = p.Data[j];
+		p.Data[i - 1] = X;
+		p.last++;
+		return;
+	}
+}
+
+int main()
+{
+	List *p;
+	List *MakeEmpty();
+	void Inster(int X, int i, List p);
+	p = MakeEmpty();
+	Insert(20, 1, *p);
+	cout << p->Data[0] << "  " << p->last << endl;
+	return 0;
+}
 
