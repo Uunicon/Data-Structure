@@ -1,5 +1,3 @@
-//未完成 插入数据不正确
-
 #include <iostream>
 using namespace std;
 
@@ -20,40 +18,33 @@ List *MakeEmpty()
 }
 
 
-void Insert(int X, int i, List p)
+void Insert(int X, int i, List *p)
 {
+
 	int j;
-	if (p.last == MAXSIZE - 1)
+	if (p->last == MAXSIZE - 1)
 	{
 		cout << "表满" << endl; return;
 	}
-	if (i<1 || 1>p.last + 2)
+	if (i<1 || i>p->last + 2)
 	{
 		cout << "位置不合法" << endl; return;
 	}
-	if (p.last == 0)
-	{
-		p.Data[0] = X;
-		p.last++;
-	}
-	else
-	{
-		for (j = p.last; j >= i - 1; j--)
-			p.Data[j + 1] = p.Data[j];
-		p.Data[i - 1] = X;
-		p.last++;
-		return;
-	}
+	for (j = p->last; j >= i - 1; j--) //j为列表长度 i为插入数据所在位置
+		p->Data[j + 1] = p->Data[j];   //先移动后面的数值
+	p->Data[i - 1] = X;
+	p->last++;
+	return;
 }
+
 
 int main()
 {
-	List *p;
 	List *MakeEmpty();
-	void Inster(int X, int i, List p);
-	p = MakeEmpty();
-	Insert(20, 1, *p);
-	cout << p->Data[0] << "  " << p->last << endl;
+	void Inster(int X, int i, List *p);
+	PtrL = MakeEmpty();
+	Insert(20, 1, PtrL);
+	Insert(30, 2, PtrL);
+	cout << PtrL->Data[0] << "  " << PtrL->Data[1] << "  " << PtrL->last << endl;
 	return 0;
 }
-
