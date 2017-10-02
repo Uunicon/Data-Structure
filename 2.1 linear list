@@ -10,14 +10,15 @@ struct List
 };
 List *PtrL;
 
-List *MakeEmpty()
+//产生一个空的固定空间的线性表
+List *MakeEmpty()      
 {
 	PtrL = new List;
 	PtrL->last = 0;
 	return PtrL;
 }
 
-
+//向表内插入一个数
 void Insert(int X, int i, List *p)
 {
 
@@ -37,14 +38,30 @@ void Insert(int X, int i, List *p)
 	return;
 }
 
+//按照序号找一个数，找到则返回标号i，未找到则返回-1
+int Find(int X, List *p)
+{
+	int i = 0;
+	while (i <= p->last && p->Data[i] != X) //若i小于last、未找到X，i++
+		i++;
+	if (i > p->last)return -1;
+	else return i;
+}
 
 int main()
 {
 	List *MakeEmpty();
 	void Inster(int X, int i, List *p);
+	int Find(int X,List *p);
 	PtrL = MakeEmpty();
-	Insert(20, 1, PtrL);
-	Insert(30, 2, PtrL);
-	cout << PtrL->Data[0] << "  " << PtrL->Data[1] << "  " << PtrL->last << endl;
+	for(int i=0;i<5;i++)             //测试插入函数，插入5个数：0，10，20，30，40
+	Insert(i*10, i+1, PtrL);
+	for (int i = 0; i < 5; i++)
+		cout << PtrL->Data[i]<<endl;
+	cout << PtrL->last << endl;
+	cout << "Please input the target number ";
+	int t;                          //target number
+	cin >> t;
+	cout << "The subscript of the target number is " << Find(t,PtrL) << endl; //测试查找函数，输入数值返回下标，未找到返回-1
 	return 0;
 }
