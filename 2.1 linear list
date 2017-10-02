@@ -1,3 +1,6 @@
+
+//产生空表 插入 查找
+
 #include <iostream>
 using namespace std;
 
