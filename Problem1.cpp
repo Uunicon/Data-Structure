@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-int n;  //nÎª¹Ì¶¨ÏßĞÔ±íÔªËØ¸öÊı
+int n;  //nä¸ºå›ºå®šçº¿æ€§è¡¨å…ƒç´ ä¸ªæ•°
 struct List
 {
 	int *Data;
 	int last;         
 };
 List *PtrL;
-//½¨Á¢¿Õ±í
+//å»ºç«‹ç©ºè¡¨
 List *MakeEmpty(int n)
 {
 	PtrL = new List;
@@ -18,10 +18,13 @@ List *MakeEmpty(int n)
 	{
 		cin >> PtrL->Data[i];
 		PtrL->last++;
-	}
+	} 	//è¾“å‡ºå½“å‰çº¿æ€§è¡¨
+	for (int i = 0; i < PtrL->last; i++)
+		cout << PtrL->Data[i] <<" ";
+	cout<<endl; 
 	return PtrL;
 }
-//²åÈëÒ»¸öÊı
+//æ’å…¥ä¸€ä¸ªæ•°
 void Insert(int X, int i, List *p)
 {
 
@@ -34,8 +37,8 @@ void Insert(int X, int i, List *p)
 	{
 		cout << "-1" << endl; return;
 	}
-	for (j = p->last; j >= i - 1; j--) //jÎªÁĞ±í³¤¶È iÎª²åÈëÊı¾İËùÔÚÎ»ÖÃ
-		p->Data[j + 1] = p->Data[j];   //ÏÈÒÆ¶¯ºóÃæµÄÊıÖµ
+	for (j = p->last; j >= i - 1; j--) //jä¸ºåˆ—è¡¨é•¿åº¦ iä¸ºæ’å…¥æ•°æ®æ‰€åœ¨ä½ç½®
+		p->Data[j + 1] = p->Data[j];   //å…ˆç§»åŠ¨åé¢çš„æ•°å€¼
 	p->Data[i - 1] = X;
 	p->last++;
 	for (int i = 0; i < p->last; i++)
@@ -44,7 +47,7 @@ void Insert(int X, int i, List *p)
 	return;
 }
 
-//É¾³ı±êºÅ¶ÔÓ¦µÄÊıÖµ
+//åˆ é™¤æ ‡å·å¯¹åº”çš„æ•°å€¼
 void Delete(int i, List *p)
 {
 	if (i < 0 || i > p->last)
@@ -65,11 +68,11 @@ void Delete(int i, List *p)
 	cout << endl;
 }
 
-//²éÕÒÒ»¸öÊı£¬ÕÒµ½Ôò·µ»Ø±êºÅi£¬Î´ÕÒµ½Ôò·µ»Ø-1
+//æŸ¥æ‰¾ä¸€ä¸ªæ•°ï¼Œæ‰¾åˆ°åˆ™è¿”å›æ ‡å·iï¼Œæœªæ‰¾åˆ°åˆ™è¿”å›-1
 int Find(int X, List *p)
 {
 	int i = 0;
-	while (i <= p->last && p->Data[i] != X) //ÈôiĞ¡ÓÚlast¡¢Î´ÕÒµ½X£¬i++
+	while (i <= p->last && p->Data[i] != X) //è‹¥iå°äºlastã€æœªæ‰¾åˆ°Xï¼Œi++
 		i++;
 	if (i > p->last)return -1;
 	else return i + 1;
@@ -78,21 +81,19 @@ int Find(int X, List *p)
 int main()
 {
 	List *MakeEmpty(int n);
-	cin >> n;                //nÎª¹Ì¶¨ÏßĞÔ±íÔªËØ¸öÊı
+	cin >> n;                //nä¸ºå›ºå®šçº¿æ€§è¡¨å…ƒç´ ä¸ªæ•°
 	PtrL = MakeEmpty(n);
 	
-	//Êä³öµ±Ç°ÏßĞÔ±í
-	for (int i = 0; i < PtrL->last; i++)
-		cout << PtrL->Data[i] <<" ";
-	//²åÈëÒ»¸öÊı
-	int X,i;     //XÎªÄ¿±êÊı£¬iÎªÏÂ±ê
+
+	//æ’å…¥ä¸€ä¸ªæ•°
+	int X,i;     //Xä¸ºç›®æ ‡æ•°ï¼Œiä¸ºä¸‹æ ‡
 	cin >> i >> X;
 	Insert(X, i, PtrL);
-	//É¾³ıÒ»¸öÊı
+	//åˆ é™¤ä¸€ä¸ªæ•°
 	int t2;
 	cin >> t2;
 	Delete(t2, PtrL);
-	//²éÕÒÒ»¸öÊı
+	//æŸ¥æ‰¾ä¸€ä¸ªæ•°
 	int t1;
 	cin >> t1;
 	cout<< Find(t1, PtrL);
