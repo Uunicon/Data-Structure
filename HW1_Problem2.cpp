@@ -1,28 +1,28 @@
 #include <iostream>
 using namespace std;
 #define MAX 10000
-int n;  //nÎª¹Ì¶¨ÏßĞÔ±íÔªËØ¸öÊı
+int n;  //nä¸ºå›ºå®šçº¿æ€§è¡¨å…ƒç´ ä¸ªæ•°
 struct List
 {
 	int *Data;
 	int last;
 };
 List *PtrL;
-//½¨Á¢¿Õ±í (´ÓĞ¡µ½´ó)
+//å»ºç«‹ç©ºè¡¨ (ä»å°åˆ°å¤§)
 List *MakeEmpty(int n)
 {
 	PtrL = new List;
 	PtrL->Data = new int[n];
 	PtrL->last = 0;
-	int *t = new int[n];  //ÁÙÊ±´æ·ÅÊı×é
+	int *t = new int[n];  //ä¸´æ—¶å­˜æ”¾æ•°ç»„
 	for (int i = 0; i < n; i++)
 	{
 		cin >> t[i];
-		if (t[i] == 0)break; //ÊäÈë0Í£Ö¹ÊäÈë
+		if (t[i] == 0)break; //è¾“å…¥0åœæ­¢è¾“å…¥
 		PtrL->last++;
 	} 
 	int i, j,temp;
-	for(i=0;i<PtrL->last-1;i++) //ÁÙÊ±Êı×éÅÅĞò
+	for(i=0;i<PtrL->last-1;i++) //ä¸´æ—¶æ•°ç»„æ’åº
 		for (j = 0; j < PtrL->last - 1 - i; j++)
 		{
 			if (t[j + 1] < t[j])
@@ -31,13 +31,13 @@ List *MakeEmpty(int n)
 			}
 		}
 
-	for (int i = 0; i < PtrL->last; i++)//½«ÅÅºÃĞòµÄÊı×é·ÅÈëÏßĞÔ±íÖĞ
+	for (int i = 0; i < PtrL->last; i++)//å°†æ’å¥½åºçš„æ•°ç»„æ”¾å…¥çº¿æ€§è¡¨ä¸­
 	{
 		PtrL->Data[i] = t[i];
 	}
 	return PtrL;
 }
-//²åÈëÒ»¸öÊı
+//æ’å…¥ä¸€ä¸ªæ•°
 void OrderInsert(int X,List *p)
 {
 	int i = 0;
@@ -45,22 +45,22 @@ void OrderInsert(int X,List *p)
 	for (int j = p->last - 1; j >= i; j--)
 		p->Data[j + 1] = p->Data[j];
 	p->Data[i] = X;
-	cout << i+1<<endl; //Êä³ö²åÈëÊıËùÔÚµÄÎ»ÖÃ
+	cout << i+1<<endl; //è¾“å‡ºæ’å…¥æ•°æ‰€åœ¨çš„ä½ç½®
 	p->last++;
 }
 
-//É¾³ı±êºÅ¶ÔÓ¦µÄÊıÖµ
+//åˆ é™¤æ ‡å·å¯¹åº”çš„æ•°å€¼
 void OrderDelete(int X, List *p)
 {
 	int i = 0;
 	while (i < p->last&&p->Data[i] != X)i++;
-	if (i > p->last) { cout << "-1" << endl; return; }
+	if (i > p->last-1) { cout << "-1" << endl; return; }
 	else
 	{
 		for (int j = i; j <p->last; j++)
 			p->Data[j] = p->Data[j+1];
 	}
-	cout << i + 1 << endl; //Êä³öÉ¾³ıÊıËùÔÚµÄÎ»ÖÃ
+	cout << i + 1 << endl; //è¾“å‡ºåˆ é™¤æ•°æ‰€åœ¨çš„ä½ç½®
 	p->last--;
 }
 
@@ -71,11 +71,11 @@ int main()
 	PtrL = MakeEmpty(MAX);
 
 
-	//²åÈëÒ»¸öÊı
-	int X;     //XÎªÄ¿±êÊı
+	//æ’å…¥ä¸€ä¸ªæ•°
+	int X;     //Xä¸ºç›®æ ‡æ•°
 	cin >> X;
 	OrderInsert(X, PtrL);
-	//É¾³ıÒ»¸öÊı
+	//åˆ é™¤ä¸€ä¸ªæ•°
 	int t2;
 	cin >> t2;
 	OrderDelete(t2, PtrL);
