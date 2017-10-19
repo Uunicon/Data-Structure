@@ -1,0 +1,32 @@
+linear list(sequence list)顺序表
+该cpp内包含以下函数 实现对顺序表的基本能操作
+
+//产生一个空的固定空间的线性表
+List *MakeEmpty()
+
+//建立固定空间的线性表 (元素有序)
+List *MakeEmptySeq(int n, List *p)
+
+//向表内插入一个数
+void Insert(int X, int i, List *p)
+
+//查找一个数，找到则返回标号i，未找到则返回NOT FIND
+int Find(int X, List *p)
+
+//删除标号对应的数值
+void Delete(int i, List *p)
+
+//有序插入一个数
+void OrderInsert(int X, List *p)
+
+//删除指定元素t
+void Delete_num(int t, List *p)
+
+//删除所有指定元素t
+void Delete_num_all
+
+//删除重复元素
+void Delete_rep(List *p)
+
+//有序合并两个线性表
+void MergeList(List La, List Lb, List Lc)
