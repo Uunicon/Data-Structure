@@ -1,10 +1,58 @@
 linked list 链表
-
+-----------------------------------------------------------------------------------------------------------------------
 1.单链表（创建，查找，插入，删除，删除重复元素，逆置，统计元素个数）
 1.Single list (Create,Find,Insert,Delete,Delete_Repeat,Reverse,Count)
 
+//建立链表
+LNode *CreateList_L(int n)
+
+//查找结点
+LNode *FindKth(int k, LNode *head)
+
+//插入
+LNode *Insert(int X, int i, LNode*h)
+
+//删除
+LNode *Delete(int i, LNode *head)
+
+//链表的逆置
+LNode *ReverseList_L(LNode *head)
+
+//删除链表内重复元素
+LNode *DeleteRe(LNode *head)
+
+//按值查找，返回下标
+LNode *Find(int X, LNode *head)
+
+//统计元素个数
+int Count(LNode *head)
+----------------------------------------------------------------------------------------------------------------------
 2.单向循环链表（创建，查找，插入，删除）
 2.One-way Circular List(Create,Find,Insert,Delete)
 
+//建立链表
+CirLNode *CreateList_Cir(int n)
+
+//给出位置，插入一个数
+CirLNode *Insert_Cir(int X, int i, CirLNode*h)
+
+//给出位置，删除一个数
+CirLNode *Delete_Cir(int i, CirLNode *head)
+
+// 按值查找，返回下标
+CirLNode *Find_Cir(int X, CirLNode *head)
+----------------------------------------------------------------------------------------------------------------------
 3.双向循环链表（创建，查找，插入，删除）
 3.Tne-way Circular List(Create,Find,Insert,Delete)
+
+//建立链表
+DuLNode *CreateList_DUL(int n)
+
+//给出位置，插入一个数
+DuLNode *Insert_DUL(int X, int i, DuLNode*h)
+
+//给出位置，删除一个数
+DuLNode *Delete_DUL(int i, DuLNode *head)
+
+//按值查找，返回下标
+DuLNode *Find_DUL(int X, DuLNode *head)
