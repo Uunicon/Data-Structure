@@ -1,0 +1,10 @@
+linked list 链表
+
+1.单链表（创建，查找，插入，删除，删除重复元素，逆置，统计元素个数）
+1.Single list (Create,Find,Insert,Delete,Delete_Repeat,Reverse,Count)
+
+2.单向循环链表（创建，查找，插入，删除）
+2.One-way Circular List(Create,Find,Insert,Delete)
+
+3.双向循环链表（创建，查找，插入，删除）
+3.Tne-way Circular List(Create,Find,Insert,Delete)
