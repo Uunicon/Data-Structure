@@ -1,0 +1,45 @@
+Stack 栈 1.顺序栈  2.链栈  3.数制转换
+------------------------------------------------------------------------------------------------------------------------------------
+1.顺序栈
+struct Stack
+{
+	int stacksize;
+	int *base; //栈底
+	int *top;  //栈顶
+	int *s;    //指向动态申请的栈
+};
+
+//顺序栈初始化
+Stack *Create_Stack(int n)
+
+//顺序栈出栈
+Stack *Pop_Stack(Stack *t)
+
+//顺序栈入栈
+Stack *Push_Stack(Stack *t, int x)
+
+//顺序栈 POP 所有元素
+Stack *Pop_All(Stack *t)
+
+2.链栈
+struct Chain_Stack
+{
+	int data;
+	Chain_Stack *next;
+};
+
+//链栈初始化
+Chain_Stack *Ch_Create_Stack(int MAX)
+
+//链栈出栈
+Chain_Stack *Ch_Pop_Stack
+
+//链栈入栈
+Chain_Stack *Ch_Push_Stack(Chain_Stack *t, int x)
+
+//链栈 POP所有元素
+Chain_Stack *Ch_Pop_All(Chain_Stack *t)
+
+3.数制转换
+输入转换前数值 转换后数值
+再输入 待转换数值 得到结果
